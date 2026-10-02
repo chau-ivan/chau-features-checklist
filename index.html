@@ -112,9 +112,6 @@
 
   /* ---------- Hero ---------- */
   .hero { padding-top:44px; padding-bottom:8px; }
-  .prep { display:inline-flex; align-items:center; gap:8px; margin-top:22px; padding:6px 8px 6px 14px; border:1px solid var(--cardline); border-radius:999px; background:var(--note); font-size:13px; color:var(--muted); font-weight:700; }
-  .prep i { width:8px; height:8px; border-radius:50%; background:var(--green); display:inline-block; }
-  .prep input { border:none; outline:none; background:var(--white); border-radius:999px; padding:5px 12px; font-size:13px; font-weight:700; color:var(--ink); width:170px; border:1px solid var(--cardline); }
   .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:28px; }
   .step { display:flex; gap:12px; padding:16px; border:1px solid var(--cardline); border-radius:12px; background:var(--white); }
   .step b { display:block; font-size:14px; color:var(--ink); margin-bottom:2px; }
@@ -407,7 +404,6 @@
     <span class="pill-eyebrow">Client Feature Guide</span>
     <h1>Every feature, in one checklist. <em>Tick what you use.</em></h1>
     <p class="lead">Pick a tab for each area of the platform, tick the boxes you already have running, and open any line to see what it does, the benefit and how long it takes to switch on.</p>
-    <div class="prep"><i></i>Prepared for <input id="clientName" type="text" placeholder="your team" aria-label="Client name" maxlength="60"></div>
 
     <div class="steps" aria-label="How to use this checklist">
       <div class="step"><span class="n">1</span><div><b>Pick a tab</b><span>Work through one area at a time, from Voice to Compliance.</span></div></div>
@@ -922,8 +918,6 @@ document.addEventListener('click', e => {
   }
   render();
 });
-$('clientName').value = S.name;
-$('clientName').addEventListener('input', e => { S.name = e.target.value; persist(); });
 document.addEventListener('input', e => {
   const t = e.target; if (t.dataset && t.dataset.slot != null) { const i = +t.dataset.slot; S.slots[i] = Object.assign({}, S.slots[i], {[t.dataset.f]: t.value}); persist(); }
 });
